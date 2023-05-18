@@ -1,0 +1,141 @@
+@import "../../../styles/variables";
+%template{
+  position: relative;
+  & *{
+    position: relative;
+    z-index: 1;
+  }
+  &::before{
+    position: absolute;
+    right:  -1.5rem;
+    bottom: 0;
+    top:0;
+    content: '';
+    width: 0;
+    display: block;
+    background-color: $main-color;
+    border-radius: 12px 0 0 12px;
+    transition: width .25s linear;
+  }
+  .hide &::before{
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 16px;
+  }
+  .hide &.active::before{
+    width: 50px;
+    height: 50px;
+  }
+  .hide &:hover::before{
+    width: 50px;
+  }
+  &:hover{
+    &, a{
+      color: #ffffff!important;
+    }
+  }
+  &:hover::before{
+    width: 120%;
+  }
+  &.active, &.active a{
+    color: #ffffff!important;
+  }
+  &.active::before{
+    width: 120%;
+  }
+}
+
+.app-menu {
+  padding-right: 1rem;
+  > .app-menu-item{
+    @extend %template;
+  }
+  .app-menu-item{
+    padding: .8rem 1.5px;
+    color: $muted;
+    display: block;
+    width: 100%;
+    &:hover, & a:hover{
+      color: #000;
+    }
+    a{
+      color: $muted;
+      opacity: 1;
+    }
+  }
+  .app-sub-menu{
+    &-title{
+      cursor: pointer;
+      padding: .8rem 1.5px;
+      display: flex;
+      align-items: center;
+      color: $muted;
+      &:hover{
+        color: #000;
+      }
+    }
+    .app-menu-item{
+      padding: .5rem 0;
+    }
+    &-items{
+      background-color: rgba(241, 241, 241, 0.2);
+      width: 100%;
+      overflow: hidden;
+      height: 0;
+      padding-left: 1.25rem;
+    }
+    &.show{
+      .app-sub-menu-items{
+        height: auto;
+      }
+    }
+    .app-sub-menu-title{
+      @extend %template;
+    }
+    .child-active a{
+      color:$main-color;
+    }
+  }
+  &.hide{
+    .app-menu-chevron-icon, .app-menu-title{
+      display: none;
+    }
+    .app-sub-menu{
+      position: relative;
+    }
+    .app-sub-menu:hover{
+      .app-sub-menu-items{
+        height: auto;
+        border: 1px solid rgba(0,0,0,0.09);
+      }
+    }
+    .app-sub-menu-items{
+      padding: 0!important;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background-color: #ffffff;
+      z-index: 999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      min-width: 400%;
+      border-radius: 8px;
+      .app-menu-item{
+        width: auto;
+        display: block;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        .app-menu-title{
+          display: block;
+          text-align: left;
+        }
+      }
+    }
+    .app-menu-item, .app-sub-menu-title{
+      text-align: center;
+      .app-menu-icon-box{
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

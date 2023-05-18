@@ -1,0 +1,12 @@
+.header {
+  position: sticky;
+  top: 25.22px;
+  z-index: 9;
+  margin-bottom: 15px;
+}
+
+.sider {
+  position: sticky !important;
+  top: 25.22px;
+  height: 100vh;
+}

@@ -1,0 +1,27 @@
+.chat-custom-form-group{
+  border: 1px solid rgba(150, 169, 186, 0.7);
+  border-radius: 14px;
+  .chat-custom-form-input{
+    border:none;
+    width: 100%;
+    &:focus{
+      outline: none;
+    }
+  }
+  .chat-custom-send-button{
+    background-color: $main-color;
+    color: #ffffff;
+    display: block;
+    padding: 11px 27px;
+    width: 100%;
+    border-radius: 14px;
+    svg{
+      vertical-align: middle;
+    }
+    &.connection{
+      cursor: default;
+      pointer-events: none;
+      opacity: .8;
+    }
+  }
+}

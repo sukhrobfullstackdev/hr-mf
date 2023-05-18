@@ -1,0 +1,90 @@
+.card{
+  max-height: 60vh;
+  overflow: auto;
+}
+.block-birthdays{
+  border-radius: 8px;
+  padding: 12px 24px;
+  margin-bottom: 1rem;
+  opacity: .5;
+  transform: scale(0.5);
+  animation: animation-birthdays .3s linear forwards;
+  @keyframes animation-birthdays {
+    0%{
+      opacity: .0;
+      transform: scale(0.8);
+    }
+    100%{
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .user-list{
+    width: 211px;
+    height: 211px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2842C8FF;
+    position: relative;
+    box-shadow: 0 16px 24px rgba(8, 35, 48, 0.16);
+    &::before{
+      content: '';
+      display: flex;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-image: linear-gradient(#9353FC 72%, #3366FF 100%);
+      background-repeat: no-repeat;
+    }
+    img{
+      width: 92%;
+      height: 92%;
+      object-fit: cover;
+      position: relative;
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(51, 102, 255, 0.72);
+    }
+    .user-name{
+      position: absolute;
+      font-size: 50px;
+    }
+    .user-list-old{
+      position: absolute;
+      background-color: #00A389;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 24px;
+      font-weight: normal;
+      line-height: 50px;
+      text-align: center;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .fio{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 24px;
+  }
+  .block-birthdays-user{
+    padding: 3rem 0;
+  }
+  &.odd .block-birthdays-user:nth-child(odd){
+    padding: 6rem 0;
+  }
+  &.even .block-birthdays-user:nth-child(even){
+    padding: 6rem 0;
+  }
+}

@@ -1,0 +1,86 @@
+.user-list{
+  overflow: hidden;
+  &-card{
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 12px 36px;
+    margin-bottom: 8px;
+    border: 1px solid #EDF1F7;
+    transform: translateY(-25%) scale(1.1);
+    opacity: 0;
+    animation: animation-list .25s linear 1 forwards;
+    transition: .25s ease-in-out;
+    &:hover{
+      background-color: #EDF1F7;
+    }
+  }
+  &-name{
+    color: #222B45;
+    text-transform: capitalize;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  p.text-muted{
+    font-size: 12px;
+    line-height: 16px;
+  }
+  &-pagination{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    font-size: 14px;
+    &.disabled{
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    select{
+      border: none;
+      outline: none;
+      background-color: transparent;
+    }
+    .pagination-btn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.disabled{
+        cursor: default;
+      }
+      cursor: pointer;
+    }
+  }
+}
+.user-list-collapse{
+  margin:1rem;
+  background-color: #fefefe;
+  padding: .7rem 1rem;
+  border-radius: 8px;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  &.show{
+    transition: opacity 0.3s linear;
+    opacity: 1;
+    pointer-events: unset;
+    height: auto;
+    position: relative;
+  }
+  &-title{
+    font-size: 14px;
+  }
+}
+@keyframes animation-list {
+  0%{
+    transform: translateY(-50%) scale(1.1);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}

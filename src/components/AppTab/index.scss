@@ -1,0 +1,34 @@
+.app-tab {
+  display: flex;
+  align-content: center;
+  margin-bottom: 1rem;
+  &-items {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    overflow: auto;
+    padding: 1rem 0;
+
+    > * {
+      padding: 0.2rem 1rem;
+    }
+
+    &::-webkit-scrollbar {
+      height: 0 !important;
+    }
+  }
+  &-button {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: .5rem 0;
+    margin: 0 .75rem;
+    cursor: pointer;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+    &.active {
+      border-bottom-color: #2842C8;
+    }
+  }
+}
